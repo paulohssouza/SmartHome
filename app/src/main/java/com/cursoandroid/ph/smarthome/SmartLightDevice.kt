@@ -3,7 +3,7 @@ package com.cursoandroid.ph.smarthome
 class SmartLightDevice (deviceName: String, deviceCategory: String) :
     SmartDevice (name = deviceName, category = deviceCategory) {
     override val deviceType = "Smart Light"
-    var brightnessLevel = 0
+    private var brightnessLevel = 0
         set(value) {
             if (value in 0..100) {
                 field = value
