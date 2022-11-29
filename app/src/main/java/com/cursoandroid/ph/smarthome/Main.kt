@@ -1,8 +1,8 @@
 package com.cursoandroid.ph.smarthome
 
 fun main () {
-    val device = SmartDevice(name = "Android TV", category = "Entertaiment")
-    println("Device name is: ${device.name}")
+    var device: SmartDevice = SmartTvDevice ("Android TV", "Entertaiment")
     device.turnOn()
-    device.turnOff()
+    device = SmartLightDevice ("Google Light", "Utility")
+    device.turnOn()
 }
