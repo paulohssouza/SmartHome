@@ -3,19 +3,9 @@ package com.cursoandroid.ph.smarthome
 class SmartTvDevice (deviceName: String, deviceCategory: String) :
     SmartDevice (name = deviceName, category = deviceCategory){
     override val deviceType = "Smart TV"
-    private var speakerVolume = 2
-        set(value) {
-            if (value in 0..100) {
-                field = value
-            }
-        }
+    private var speakerVolume by RangeRegulator (initialValue = 0, minValue = 0, maxValue = 100)
 
-    private var channelNumber = 1
-    set (value) {
-        if (value in 0..200) {
-            field = value
-        }
-    }
+    private var channelNumber by RangeRegulator(initialValue = 1, minValue = 0, maxValue = 200)
 
     override fun turnOn() {
         super.turnOn()
