@@ -1,8 +1,8 @@
 package com.cursoandroid.ph.smarthome
 
 class SmartHome (
-    val smartTvDevice: SmartTvDevice,
-    val smartLightDevice: SmartLightDevice
+    private val smartTvDevice: SmartTvDevice,
+    private val smartLightDevice: SmartLightDevice
 ) {
     var deviceTurnOnCount = 0
         private set
@@ -10,29 +10,52 @@ class SmartHome (
         deviceTurnOnCount ++
         smartTvDevice.turnOn()
     }
-    fun turnOffTv () {
+    private fun turnOffTv () {
         deviceTurnOnCount --
         smartTvDevice.turnOff()
     }
+
     fun increaseTvVolume() {
         smartTvDevice.increaseSpeakerVolume()
+    }
+
+    fun deacreasedTvVolume () {
+        smartTvDevice.decreaseSpeakerVolume()
+    }
+
+    fun printSmartTvInfo () {
+        smartTvDevice.printDeviceInfo()
     }
 
     fun changeTvChannelToNext() {
         smartTvDevice.nextChannel()
     }
+
+    fun changeTvChannelToPrevious() {
+        smartTvDevice.previousChannel()
+    }
+
     fun turnOnLight() {
         deviceTurnOnCount ++
         smartLightDevice.turnOn()
     }
 
-    fun turnOffLight() {
+    private fun turnOffLight() {
         deviceTurnOnCount --
         smartLightDevice.turnOff()
     }
     fun increaseLightBrightness() {
         smartLightDevice.increaseBrightness()
     }
+
+    fun decreaseLightBrightness() {
+        smartLightDevice.decreaseBrightness()
+    }
+
+    fun printSmartLightInfo () {
+        smartLightDevice.printDeviceInfo()
+    }
+
     fun turnOffAllDevices() {
         turnOffTv()
         turnOffLight()

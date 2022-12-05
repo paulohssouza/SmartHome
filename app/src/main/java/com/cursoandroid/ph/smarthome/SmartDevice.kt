@@ -1,7 +1,7 @@
 package com.cursoandroid.ph.smarthome
 
 open class SmartDevice (val name: String, val category: String){
-    var deviceStatus = "online"
+    var deviceStatus = "off"
         protected set
     open val deviceType = "unknown"
     constructor(name: String, category: String, statusCode: Int) : this(name, category) {
@@ -17,5 +17,9 @@ open class SmartDevice (val name: String, val category: String){
 
     open fun turnOff() {
         deviceStatus = "off"
+    }
+
+    open fun printDeviceInfo () {
+        print("Device name: $name, category: $category, ")
     }
 }
